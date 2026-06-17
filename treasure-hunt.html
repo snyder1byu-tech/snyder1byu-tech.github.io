@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Treasure Hunt — Pirates of the Caribbean</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="treasure-hunt.css">
+</head>
+<body>
+
+<header class="game-header">
+  <a href="pirates.html" class="back-link">← Back to the ship</a>
+  <h1 class="game-page-title">Treasure Hunt</h1>
+  <p class="game-page-subtitle">Tales of the Brethren Court</p>
+</header>
+
+<main class="game-page-content">
+
+  <div class="game-intro">
+    <p>Davy Jones has hidden a chest of gold somewhere between <strong>1 and 100</strong>. Captain Jack has intercepted his charts — but the number is scrambled. Can ye find the treasure before the Black Spot claims ye?</p>
+  </div>
+
+  <div class="game-board">
+
+    <div class="game-stats">
+      <div class="stat-card">
+        <span class="stat-label">Guesses</span>
+        <span class="stat-value" id="guess-count">0</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Gold Won</span>
+        <span class="stat-value" id="gold-total">0 🪙</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Best Score</span>
+        <span class="stat-value" id="best-score">—</span>
+      </div>
+    </div>
+
+    <div class="game-clue-box" id="clue-box">
+      <span class="clue-icon" id="clue-icon">🗺️</span>
+      <p class="clue-text" id="clue-text">The chest lies hidden. Enter yer first guess, sailor.</p>
+    </div>
+
+    <div class="game-input-row">
+      <input
+        type="number"
+        id="guess-input"
+        class="game-input"
+        min="1"
+        max="100"
+        placeholder="1 – 100"
+        aria-label="Your guess"
+      />
+      <button class="game-btn" id="guess-btn" onclick="makeGuess()">Guess ⚔️</button>
+    </div>
+
+    <div class="game-range-bar">
+      <span class="range-label" id="range-low">1</span>
+      <div class="range-track">
+        <div class="range-fill" id="range-fill"></div>
+        <div class="range-marker" id="range-marker" style="display:none;"></div>
+      </div>
+      <span class="range-label" id="range-high">100</span>
+    </div>
+    <p class="range-hint">Remaining range: <strong id="range-text">1 – 100</strong></p>
+
+    <div class="guess-history" id="guess-history"></div>
+
+    <div class="win-banner" id="win-banner" style="display:none;">
+      <div class="win-coins">🪙🪙🪙</div>
+      <h3 class="win-title">Ye found the treasure!</h3>
+      <p class="win-msg" id="win-msg"></p>
+      <button class="game-btn" onclick="newGame()">Set Sail Again 🏴‍☠️</button>
+    </div>
+
+    <button class="reset-btn" id="reset-btn" onclick="newGame()">Abandon Ship & Start Over</button>
+
+  </div>
+</main>
+
+<footer class="game-footer">
+  ☠ &nbsp; Pirates of the Caribbean Fan Site &nbsp; ☠ &nbsp; For the love of the open sea
+</footer>
+
+<script>
+  let secretNumber, guessCount, rangeLow, rangeHigh, gameOver, totalGold, bestScore;
+
+  function newGame() {
+    secretNumber = Math.floor(Math.random() * 100) + 1;
+    guessCount   = 0;
+    rangeLow     = 1;
+    rangeHigh    = 100;
+    gameOver     = false;
+
+    document.getElementById('clue-icon').textContent = '🗺️';
+    document.getElementById('clue-text').textContent = 'The chest lies hidden. Enter yer first guess, sailor.';
+    document.getElementById('clue-box').className = 'game-clue-box';
+    document.getElementById('guess-count').textContent = '0';
+    document.getElementById('guess-input').value = '';
+    document.getElementById('guess-input').disabled = false;
+    document.getElementById('guess-btn').disabled = false;
+    document.getElementById('guess-history').innerHTML = '';
+    document.getElementById('win-banner').style.display = 'none';
+    document.getElementById('reset-btn').style.display = 'inline-block';
+    document.getElementById('range-low').textContent = '1';
+    document.getElementById('range-high').textContent = '100';
+    document.getElementById('range-text').textContent = '1 – 100';
+    document.getElementById('range-fill').style.width = '0%';
+    document.getElementById('range-marker').style.display = 'none';
+
+    if (totalGold === undefined) totalGold = 0;
+    if (bestScore === undefined) bestScore = null;
+    document.getElementById('gold-total').textContent = totalGold + ' 🪙';
+    document.getElementById('best-score').textContent = bestScore !== null ? bestScore + ' guesses' : '—';
+  }
+
+  function goldForGuesses(n) {
+    if (n <= 3)  return 500;
+    if (n <= 5)  return 300;
+    if (n <= 8)  return 150;
+    if (n <= 12) return 75;
+    return 25;
+  }
+
+  function makeGuess() {
+    if (gameOver) return;
+
+    const input = document.getElementById('guess-input');
+    const guess = parseInt(input.value);
+
+    if (isNaN(guess) || guess < 1 || guess > 100) {
+      document.getElementById('clue-text').textContent = 'That\'s no proper number, ye scallywag! Enter something between 1 and 100.';
+      document.getElementById('clue-box').className = 'game-clue-box warn';
+      document.getElementById('clue-icon').textContent = '⚠️';
+      return;
+    }
+
+    guessCount++;
+    document.getElementById('guess-count').textContent = guessCount;
+
+    const history = document.getElementById('guess-history');
+    const pill = document.createElement('span');
+    pill.className = 'history-pill';
+    pill.textContent = guess;
+    history.appendChild(pill);
+
+    const pct = ((guess - 1) / 99) * 100;
+    document.getElementById('range-marker').style.display = 'block';
+    document.getElementById('range-marker').style.left = pct + '%';
+
+    if (guess === secretNumber) {
+      gameOver = true;
+      const earned = goldForGuesses(guessCount);
+      totalGold += earned;
+
+      if (bestScore === null || guessCount < bestScore) bestScore = guessCount;
+
+      document.getElementById('gold-total').textContent = totalGold + ' 🪙';
+      document.getElementById('best-score').textContent = bestScore + ' guesses';
+      document.getElementById('guess-input').disabled = true;
+      document.getElementById('guess-btn').disabled = true;
+      document.getElementById('reset-btn').style.display = 'none';
+      document.getElementById('win-banner').style.display = 'block';
+      document.getElementById('win-msg').textContent =
+        'Ye found it in ' + guessCount + ' guess' + (guessCount === 1 ? '' : 'es') +
+        ' and plundered ' + earned + ' gold coins! Total hoard: ' + totalGold + ' 🪙';
+
+      pill.classList.add('correct');
+      document.getElementById('clue-box').className = 'game-clue-box win';
+      document.getElementById('clue-icon').textContent = '🏆';
+      document.getElementById('clue-text').textContent = 'X marks the spot — the number was ' + secretNumber + '!';
+
+    } else if (guess < secretNumber) {
+      rangeLow = Math.max(rangeLow, guess + 1);
+      const fillPct = ((rangeLow - 1) / 99) * 100;
+      document.getElementById('range-fill').style.width = fillPct + '%';
+      document.getElementById('range-fill').style.left = '0';
+      document.getElementById('range-low').textContent = rangeLow;
+      document.getElementById('range-text').textContent = rangeLow + ' – ' + rangeHigh;
+
+      document.getElementById('clue-box').className = 'game-clue-box low';
+      document.getElementById('clue-icon').textContent = '🌊';
+      document.getElementById('clue-text').textContent =
+        guess + ' be too low, sailor! The chest lies in deeper waters. Sail higher!';
+      pill.classList.add('low');
+
+    } else {
+      rangeHigh = Math.min(rangeHigh, guess - 1);
+      const fillPct = ((100 - rangeHigh) / 99) * 100;
+      document.getElementById('range-fill').style.width = fillPct + '%';
+      document.getElementById('range-fill').style.left = 'auto';
+      document.getElementById('range-fill').style.right = '0';
+      document.getElementById('range-high').textContent = rangeHigh;
+      document.getElementById('range-text').textContent = rangeLow + ' – ' + rangeHigh;
+
+      document.getElementById('clue-box').className = 'game-clue-box high';
+      document.getElementById('clue-icon').textContent = '💨';
+      document.getElementById('clue-text').textContent =
+        guess + ' be too high, matey! The chest is shallower than that. Sail lower!';
+      pill.classList.add('high');
+    }
+
+    input.value = '';
+    input.focus();
+  }
+
+  document.getElementById('guess-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') makeGuess();
+  });
+
+  newGame();
+</script>
+</body>
+</html>

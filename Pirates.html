@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pirates of the Caribbean</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pirates.css">
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="skull-row">
+    <span>☠</span><span>⚓</span><span>☠</span><span>⚓</span><span>☠</span>
+  </div>
+  <h1 class="hero-title">Pirates of the<br>Caribbean</h1>
+  <p class="hero-subtitle">Tales of the Brethren Court</p>
+  <div class="hero-divider"></div>
+  <div class="ocean-waves">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C180,70 360,10 540,40 C720,70 900,10 1080,40 C1260,70 1440,10 1440,40 L1440,80 L0,80 Z" fill="#0A1628" opacity="0.8"/>
+      <path d="M0,55 C180,25 360,65 540,55 C720,45 900,75 1080,55 C1260,35 1440,65 1440,55 L1440,80 L0,80 Z" fill="#0A1628" opacity="0.6"/>
+    </svg>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav-wrap" role="navigation" aria-label="Site sections">
+  <div class="nav-tabs">
+    <button class="tab-btn active" data-tab="home">Home</button>
+    <button class="tab-btn" data-tab="videos">Videos</button>
+    <button class="tab-btn" data-tab="films">The Films</button>
+    <button class="tab-btn" data-tab="characters">Characters</button>
+    <button class="tab-btn" data-tab="lore">Lore & Myth</button>
+    <a class="tab-btn tab-link" href="treasure-hunt.html">Treasure Hunt GAME!</a>
+  </div>
+</nav>
+
+<!-- CONTENT -->
+<main class="content-area">
+
+  <!-- HOME -->
+  <section class="tab-panel active" id="home" role="tabpanel">
+    <h2 class="section-heading">Welcome, Sailor</h2>
+    <div class="section-rule"></div>
+    <div class="intro-grid">
+      <div class="intro-card">
+        <h3>The Saga</h3>
+        <p>A swashbuckling franchise spanning five films, the Pirates of the Caribbean series follows the eccentric Captain Jack Sparrow and his encounters with cursed treasure, mythical seas, and the immortal dead.</p>
+      </div>
+      <div class="intro-card">
+        <h3>The Legend</h3>
+        <p>From the cursed Aztec gold of the Black Pearl to the heart of Davy Jones, each film weaves together nautical myth, dark magic, and a rogue's gallery of unforgettable scoundrels and heroes.</p>
+      </div>
+    </div>
+    <div class="quote-block">
+      <blockquote>"Me? I'm dishonest. And a dishonest man you can always trust to be dishonest. Honestly, it's the honest ones you want to watch out for."</blockquote>
+      <cite>— Captain Jack Sparrow</cite>
+    </div>
+    <div class="intro-grid">
+      <div class="intro-card">
+        <h3>The World</h3>
+        <p>Set in the golden age of Caribbean piracy, the films blend the historical with the fantastical — from Port Royal's rigid society to the mysterious Davy Jones's Locker at the edge of the world.</p>
+      </div>
+      <div class="intro-card">
+        <h3>The Music</h3>
+        <p>Hans Zimmer's iconic score, featuring "He's a Pirate" and "Davy Jones," became one of film history's most beloved soundtracks — instantly recognizable and endlessly stirring.</p>
+      </div>
+    </div>
+    <div class="quote-block" style="margin-top:2rem;">
+      <blockquote>"Not all treasure is silver and gold, mate."</blockquote>
+      <cite>— Captain Jack Sparrow</cite>
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section class="tab-panel" id="videos" role="tabpanel">
+    <h2 class="section-heading">Watch & Listen</h2>
+    <div class="section-rule"></div>
+    <p class="yt-intro">Relive the greatest moments from the Caribbean — official trailers, iconic scenes, and the legendary score that set sail with the Black Pearl.</p>
+    <div class="yt-grid">
+      <div class="yt-card featured">
+        <iframe
+          src="https://www.youtube.com/embed/naQr0uTrH_s"
+          title="Pirates of the Caribbean: The Curse of the Black Pearl — Official Trailer"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+        <div class="yt-card-label">Official Trailer — The Curse of the Black Pearl (2003)</div>
+        <div class="yt-card-desc">The trailer that started it all — introducing Captain Jack Sparrow to the world for the first time.</div>
+      </div>
+      <div class="yt-card">
+        <iframe
+          src="https://www.youtube.com/embed/pMBKPBsniLg"
+          title="He's a Pirate — Hans Zimmer"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+        <div class="yt-card-label">He's a Pirate — Hans Zimmer</div>
+        <div class="yt-card-desc">The iconic theme from the original film, composed by Hans Zimmer and Klaus Badelt.</div>
+      </div>
+      <div class="yt-card">
+        <iframe
+          src="https://www.youtube.com/embed/F-bsf2x-afM"
+          title="Dead Men Tell No Tales — Trailer"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+        <div class="yt-card-label">Dead Men Tell No Tales — Official Trailer (2017)</div>
+        <div class="yt-card-desc">Captain Salazar's ghost crew pursues Sparrow across the seas in the fifth installment.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILMS -->
+  <section class="tab-panel" id="films" role="tabpanel">
+    <h2 class="section-heading">The Five Voyages</h2>
+    <div class="section-rule"></div>
+    <div class="films-list">
+      <article class="film-card">
+        <div class="film-num">I</div>
+        <div class="film-info">
+          <h3>The Curse of the Black Pearl</h3>
+          <div class="film-meta">2003 · Directed by Gore Verbinski</div>
+          <p>Blacksmith Will Turner teams with the eccentric pirate Jack Sparrow to rescue his love, Elizabeth Swann, from the cursed crew of the Black Pearl — undead pirates doomed by stolen Aztec gold.</p>
+        </div>
+      </article>
+      <article class="film-card">
+        <div class="film-num">II</div>
+        <div class="film-info">
+          <h3>Dead Man's Chest</h3>
+          <div class="film-meta">2006 · Directed by Gore Verbinski</div>
+          <p>Jack owes a blood debt to the terrifying Davy Jones, ruler of the ocean depths. To escape his fate, he must find the Dead Man's Chest — and the still-beating heart within it.</p>
+        </div>
+      </article>
+      <article class="film-card">
+        <div class="film-num">III</div>
+        <div class="film-info">
+          <h3>At World's End</h3>
+          <div class="film-meta">2007 · Directed by Gore Verbinski</div>
+          <p>Will, Elizabeth, and Barbossa journey to World's End to rescue Jack from Davy Jones's Locker. The Pirate Lords of the Brethren Court unite against the East India Trading Company.</p>
+        </div>
+      </article>
+      <article class="film-card">
+        <div class="film-num">IV</div>
+        <div class="film-info">
+          <h3>On Stranger Tides</h3>
+          <div class="film-meta">2011 · Directed by Rob Marshall</div>
+          <p>Jack crosses paths with the enigmatic Angelica and the brutal Blackbeard as they race to find the legendary Fountain of Youth, whose waters grant immortality at a terrible price.</p>
+        </div>
+      </article>
+      <article class="film-card">
+        <div class="film-num">V</div>
+        <div class="film-info">
+          <h3>Dead Men Tell No Tales</h3>
+          <div class="film-meta">2017 · Directed by Joachim Rønning & Espen Sandberg</div>
+          <p>The fearsome ghost-captain Armando Salazar escapes the Devil's Triangle to hunt down Jack Sparrow. Young Henry Turner seeks the Trident of Poseidon to break all curses of the sea.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CHARACTERS -->
+  <section class="tab-panel" id="characters" role="tabpanel">
+    <h2 class="section-heading">Rogues & Heroes</h2>
+    <div class="section-rule"></div>
+    <div class="chars-grid">
+      <div class="char-card">
+        <div class="char-icon">🏴‍☠️</div>
+        <div class="char-name">Captain Jack Sparrow</div>
+        <div class="char-actor">Johnny Depp</div>
+        <p class="char-desc">The eccentric, unpredictable captain of the Black Pearl. His methods are unorthodox and his motives inscrutable, yet he always seems to end up exactly where he intends.</p>
+      </div>
+      <div class="char-card">
+        <div class="char-icon">⚔️</div>
+        <div class="char-name">Will Turner</div>
+        <div class="char-actor">Orlando Bloom</div>
+        <p class="char-desc">A gifted blacksmith and skilled swordsman, Will is the son of Bootstrap Bill Turner. His selfless courage drives him to risk everything for those he loves.</p>
+      </div>
+      <div class="char-card">
+        <div class="char-icon">👑</div>
+        <div class="char-name">Elizabeth Swann</div>
+        <div class="char-actor">Keira Knightley</div>
+        <p class="char-desc">The governor's daughter turned Pirate King. Elizabeth's intelligence, bravery, and moral conviction make her one of the most formidable figures in the Brethren Court.</p>
+      </div>
+      <div class="char-card">
+        <div class="char-icon">💀</div>
+        <div class="char-name">Davy Jones</div>
+        <div class="char-actor">Bill Nighy</div>
+        <p class="char-desc">Ruler of the ocean depths, cursed to command the Flying Dutchman. His tentacled face and pipe organ are iconic — as is the heart he locked away to forget his lost love.</p>
+      </div>
+      <div class="char-card">
+        <div class="char-icon">🦜</div>
+        <div class="char-name">Captain Barbossa</div>
+        <div class="char-actor">Geoffrey Rush</div>
+        <p class="char-desc">A cunning, ruthless, and oddly honorable pirate. Barbossa serves as rival and reluctant ally to Jack — their dynamic is one of the franchise's most entertaining threads.</p>
+      </div>
+      <div class="char-card">
+        <div class="char-icon">⚓</div>
+        <div class="char-name">Bootstrap Bill Turner</div>
+        <div class="char-actor">Stellan Skarsgård</div>
+        <p class="char-desc">Will's father, cursed to serve aboard the Flying Dutchman. His sacrifice and honor echo across generations — and across the deep, cold sea.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LORE -->
+  <section class="tab-panel" id="lore" role="tabpanel">
+    <h2 class="section-heading">Myths of the Deep</h2>
+    <div class="section-rule"></div>
+    <div class="lore-section">
+      <h3>The Brethren Court</h3>
+      <p>Nine Pirate Lords rule the nine seas, each holding a piece of eight — in truth, ordinary trinkets imbued with symbolic power. Together they form the Brethren Court, the highest council of piracy, capable of convening to face existential threats to the pirate way of life.</p>
+    </div>
+    <div class="lore-section">
+      <h3>Cursed Treasures</h3>
+      <div class="lore-items">
+        <div class="lore-item">
+          <strong>Aztec Gold</strong>
+          Any crew that spends a coin from the chest of Cortés is cursed to undeath — unable to feel, taste, or live — until every coin is returned with a blood offering.
+        </div>
+        <div class="lore-item">
+          <strong>Heart of Davy Jones</strong>
+          Jones removed his own heart and locked it in a chest to spare himself grief. Whoever controls the heart controls Jones — and through him, the seas.
+        </div>
+        <div class="lore-item">
+          <strong>Trident of Poseidon</strong>
+          The mythical weapon of the sea god. It binds all curses of the ocean and can only be shattered by a true Turner — born of the sea.
+        </div>
+        <div class="lore-item">
+          <strong>Fountain of Youth</strong>
+          Hidden in uncharted waters, the Fountain grants immortality but demands a price — one life must be given so another may drink.
+        </div>
+      </div>
+    </div>
+    <div class="lore-section">
+      <h3>The Kraken</h3>
+      <p>Davy Jones's monstrous leviathan, summoned from the inky deep to drag ships and men to the locker. Its tentacles can crush the largest warship in seconds. To be marked by the Black Spot is to draw its eye — and seal your fate.</p>
+    </div>
+    <div class="lore-section">
+      <h3>Ships of Legend</h3>
+      <div class="lore-items">
+        <div class="lore-item">
+          <strong>The Black Pearl</strong>
+          The fastest ship on the seven seas, with sails as dark as night. Once lost, it can be called back from the depths — for a price only Jack is willing to pay.
+        </div>
+        <div class="lore-item">
+          <strong>The Flying Dutchman</strong>
+          Cursed vessel of Davy Jones, crewed by souls of the drowned. It can sail beneath the waves and emerge from anywhere — silent, inevitable, and merciless.
+        </div>
+        <div class="lore-item">
+          <strong>The Queen Anne's Revenge</strong>
+          Blackbeard's fearsome flagship. Rigged with the captured sails of a hundred prizes and armed with flame projectors, she is terror itself given a hull and keel.
+        </div>
+        <div class="lore-item">
+          <strong>The Silent Mary</strong>
+          The ghost ship of Captain Salazar, crewed by the undead. She sails with her bow eternally broken open — a wound that never healed, like the men inside her.
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  ☠ &nbsp; Pirates of the Caribbean Fan Site &nbsp; ☠ &nbsp; For the love of the open sea
+</footer>
+
+<script>
+  /* === TAB SWITCHING === */
+  const tabs = document.querySelectorAll('.tab-btn:not(.tab-link)');
+  const panels = document.querySelectorAll('.tab-panel');
+
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(target).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

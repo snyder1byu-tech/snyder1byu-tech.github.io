@@ -1,0 +1,86 @@
+body {
+    background-color: #d8dbdd;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #06265c;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+nav a {
+    color: white;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.section {
+    background-color: white;
+    margin: 25px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,.15);
+}
+
+h1 {
+    color: white;
+}
+
+h2 {
+    color: #06265c;
+}
+h3 {
+    color: #06265c;
+}
+/* === alligning the picture and making it a circle took a long time ===*/
+.about-header {
+    display: flex;
+    align-items: baseline;
+}
+
+.about-header h2 {
+    margin: 0;
+}
+.profile-container {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden; 
+  border: 3px solid white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; 
+}
+
+.hobby-image {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: 10px;
+    border-radius: 5%;
+   
+}
+
+.tableauPlaceholder {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+p {
+    line-height: 1.6;
+}

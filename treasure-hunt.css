@@ -1,0 +1,389 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold: #C9922A;
+  --gold-light: #E8B84B;
+  --gold-dim: #8B6319;
+  --deep-ocean: #0A1628;
+  --ocean-mid: #0F2A4A;
+  --wood-dark: #2C1810;
+  --sail-cream: #F5EDD6;
+  --sail-aged: #D4C49A;
+  --mist: rgba(245, 237, 214, 0.08);
+  --border-gold: rgba(201, 146, 42, 0.35);
+}
+
+body {
+  background-color: var(--deep-ocean);
+  color: var(--sail-cream);
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+.game-header {
+  background: linear-gradient(180deg, #020810 0%, var(--deep-ocean) 100%);
+  border-bottom: 1px solid var(--border-gold);
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.back-link {
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: var(--gold-light);
+}
+
+.game-page-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--gold-light);
+  text-shadow: 0 0 40px rgba(201, 146, 42, 0.35);
+  letter-spacing: 0.04em;
+}
+
+.game-page-subtitle {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  color: var(--sail-aged);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-top: 0.6rem;
+  opacity: 0.75;
+}
+
+.game-page-content {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.game-intro {
+  background: var(--mist);
+  border: 1px solid var(--border-gold);
+  border-radius: 4px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--sail-aged);
+  font-size: 1rem;
+}
+
+.game-intro strong {
+  color: var(--gold-light);
+}
+
+.game-board {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.game-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.stat-card {
+  background: var(--mist);
+  border: 1px solid var(--border-gold);
+  border-radius: 4px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.stat-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+.stat-value {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.4rem;
+  color: var(--gold-light);
+}
+
+.game-clue-box {
+  border: 1px solid var(--border-gold);
+  border-radius: 4px;
+  padding: 1.3rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--mist);
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.game-clue-box.low {
+  background: rgba(15, 42, 74, 0.5);
+  border-color: rgba(55, 138, 221, 0.5);
+}
+
+.game-clue-box.high {
+  background: rgba(44, 24, 16, 0.6);
+  border-color: rgba(139, 26, 26, 0.6);
+}
+
+.game-clue-box.win {
+  background: rgba(42, 33, 10, 0.7);
+  border-color: var(--gold);
+}
+
+.game-clue-box.warn {
+  background: rgba(44, 24, 16, 0.4);
+  border-color: rgba(201, 146, 42, 0.5);
+}
+
+.clue-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.clue-text {
+  font-size: 1.05rem;
+  color: var(--sail-cream);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.game-input-row {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.game-input {
+  flex: 1;
+  background: rgba(245, 237, 214, 0.06);
+  border: 1px solid var(--border-gold);
+  border-radius: 4px;
+  color: var(--sail-cream);
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: textfield;
+}
+
+.game-input::-webkit-outer-spin-button,
+.game-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.game-input:focus {
+  border-color: var(--gold);
+  background: rgba(245, 237, 214, 0.1);
+}
+
+.game-input::placeholder {
+  color: var(--gold-dim);
+  opacity: 0.7;
+}
+
+.game-btn {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--deep-ocean);
+  background: var(--gold);
+  border: none;
+  border-radius: 4px;
+  padding: 0.8rem 1.6rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.game-btn:hover {
+  background: var(--gold-light);
+}
+
+.game-btn:active {
+  transform: scale(0.97);
+}
+
+.game-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.game-range-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.range-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  color: var(--gold-dim);
+  min-width: 28px;
+  text-align: center;
+}
+
+.range-track {
+  flex: 1;
+  height: 8px;
+  background: rgba(245, 237, 214, 0.1);
+  border: 1px solid var(--border-gold);
+  border-radius: 4px;
+  position: relative;
+  overflow: visible;
+}
+
+.range-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: rgba(139, 26, 26, 0.45);
+  border-radius: 4px;
+  transition: width 0.3s;
+  right: auto;
+}
+
+.range-marker {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  background: var(--gold);
+  border-radius: 50%;
+  border: 2px solid var(--deep-ocean);
+  transition: left 0.3s;
+}
+
+.range-hint {
+  font-size: 0.88rem;
+  color: var(--gold-dim);
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.05em;
+  margin-top: -0.6rem;
+}
+
+.range-hint strong {
+  color: var(--gold);
+}
+
+.guess-history {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  min-height: 1.8rem;
+}
+
+.history-pill {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  border: 1px solid var(--border-gold);
+  background: var(--mist);
+  color: var(--sail-aged);
+  transition: background 0.2s;
+}
+
+.history-pill.low {
+  background: rgba(15, 42, 74, 0.5);
+  border-color: rgba(55, 138, 221, 0.45);
+  color: #85b7eb;
+}
+
+.history-pill.high {
+  background: rgba(44, 24, 16, 0.6);
+  border-color: rgba(139, 26, 26, 0.5);
+  color: #f09595;
+}
+
+.history-pill.correct {
+  background: rgba(42, 33, 10, 0.8);
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+
+.win-banner {
+  background: rgba(42, 33, 10, 0.7);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.win-coins {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.3em;
+}
+
+.win-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.5rem;
+  color: var(--gold-light);
+  margin-bottom: 0.6rem;
+}
+
+.win-msg {
+  color: var(--sail-aged);
+  font-size: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.reset-btn {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  background: transparent;
+  border: 1px solid rgba(139, 99, 25, 0.35);
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  align-self: flex-start;
+}
+
+.reset-btn:hover {
+  color: var(--sail-aged);
+  border-color: var(--gold-dim);
+}
+
+.game-footer {
+  background: var(--wood-dark);
+  border-top: 1px solid var(--border-gold);
+  text-align: center;
+  padding: 1.8rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+@media (max-width: 600px) {
+  .game-stats { grid-template-columns: 1fr 1fr; }
+  .game-input-row { flex-direction: column; }
+  .game-input, .game-btn { width: 100%; }
+}
